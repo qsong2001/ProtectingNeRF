@@ -96,7 +96,7 @@
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="http://arxiv.org/abs/"
+                <a href="https://arxiv.org/abs/2407.07735"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -133,7 +133,7 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <div style="text-align: center;">
-          <img src="eccv-intro.pdf" alt="Figure 1"  width="60%"/>
+          <img src="eccv-intro.png" alt="Figure 1"  width="60%"/>
         </div>
       </div>
     </div>
@@ -153,8 +153,8 @@ Neural Radiance Fields (NeRFs) have become a key method for 3D scene representat
     </div>
     <!--/ Abstract. -->
 
-<!--     Paper video. -->
-<!--     <div class="column is-centered has-text-centered">
+    <!-- Framework. -->
+    <div class="column is-centered has-text-centered">
       <h2 class="title is-3">Framework</h2>
     </div>
     <div class="columns is-centered has-text-centered">
@@ -163,22 +163,20 @@ Neural Radiance Fields (NeRFs) have become a key method for 3D scene representat
           <div class="hero-body">
             <div class="container">
                 <div style="text-align: center;">
-                  <img src="assets/framework.png" alt="Figure 1"  width="100%"/>
+                  <img src="eccv-framework_v2.png" alt="Figure 1"  width="100%"/>
                 </div>
                 <div class="content has-text-justified">
-                  <p>Illustration of our proposed method. (a) A <i>watermarked color representation</i> 
-                    is obtained with the given secret message, which is able to produce watermarked color 
-                    for rendering. (b) During training, a <i>distortion-resistant rendering</i> is deployed 
-                    to map the geometry (<span>&sigma;</span>) and watermarked color representations to image 
-                    patches with several distortions. (c) Finally, the secret message can be revealed by a 
-                    CNN-based <i>message extractor</i>.</p>
+                  <p>
+Our \textbf{plug-and-play} method to watermark NeRF during its creation. \textbf{(1) Building watermarking base model}: The watermarking base model $\mathcal{F}$ can be sourced from a third party (\cref{sec:pre-training}). We implement a HiDDeN~\cite{zhu2018hidden} framework to get the pre-trained message extractor as our watermarking base model $\mathcal{F}$. During the training, the encoder $\mathcal{E}$ encodes a randomly selected 48-kit message $\mathbf{m}$ and cover image $\mathbf{I}_o$ and outputs a watermarked image $\mathbf{I}_{en}$. Then the message extractor $\mathcal{F}$ extracts embedded message $\hat{\mathbf{m}}$ from the watermarked image. Message encoder $\mathcal{E}$ is discarded after building watermarking base model $\mathcal{F}$.  \textbf{(2) NeRF creation with message distillation}: NeRF creators first fix a copyright message $\mathbf{m}$, then employ this base model $\mathcal{F}$ to embed selected watermarks to NeRFs during the creation process via Progressive Global Rendering (PGR) and message distillation (\cref{sec:distilling}). When the optimization of NeRF is finalized, creators immediately obtain a watermarked NeRF. \textbf{(3) Extracting watermark}: Subsequently, they can utilize the base model $\mathcal{F}$ to retrieve binary watermarks from the rendered images, asserting their ownership.
+                  
+                  </p>
                 </div>
             </div>
           </div>
         </section>
       </div>
-    </div> -->   
-    <!--/ Paper video. -->
+    </div>
+    <!--/ Paper framework -->
 
   </div>
 </section>
